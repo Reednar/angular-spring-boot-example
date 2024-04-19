@@ -1,10 +1,13 @@
 import { Component } from '@angular/core';
+import { faHome, faBook } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'angular-springboot-recipe';
+  title: string = 'angular-springboot-recipe';
+  faHome = faHome;
+  faBook = faBook;
 }

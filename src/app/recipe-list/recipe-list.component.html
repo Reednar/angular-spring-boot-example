@@ -1,0 +1,12 @@
+<h1 class="mb-5">Liste des recettes</h1>
+<ul class="list-group">
+    <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let recipe of recipes">
+        <div>
+            <a [routerLink]="['/recettes/edit', recipe.id]">{{recipe.name}}</a> - {{recipe.description}}
+        </div>
+        <div>
+            <a [routerLink]="['/recettes/edit', recipe.id]" class="btn btn-primary">Éditer</a>
+            <a (click)="onDelete(recipe.id)" class="btn btn-danger">Supprimer</a>
+        </div>
+    </li>
+</ul>

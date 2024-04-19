@@ -1,0 +1,26 @@
+<div class="row mb-5">
+    <div class="col-1">
+        <button class="btn btn-primary" (click)="goBack()"><fa-icon [icon]="faDeleteLeft"></fa-icon></button>
+    </div>
+    <div class="col-11">
+        <h1 *ngIf="isNewRecipe()">Créer une recette</h1>
+        <h1 *ngIf="!isNewRecipe()">Modification de la recette</h1>
+    </div>
+</div>
+
+<form (submit)="onSubmit()">
+    <div class="mb-3">
+        <label for="name" class="form-label">Nom de la recette</label>
+        <input type="text" [(ngModel)]="recipe.name" class="form-control" id="name" name="name"
+            placeholder="Nom de votre recette" required>
+        <div *ngIf="formSubmitted && !recipe.name" class="text-danger">Le nom de la recette est requis.</div>
+    </div>
+    <div class="mb-3">
+        <label for="describe" class="form-label">Description</label>
+        <textarea class="form-control" [(ngModel)]="recipe.description" id="describe" name="describe" rows="3"
+            placeholder="Description de votre recette" required></textarea>
+        <div *ngIf="formSubmitted && !recipe.description" class="text-danger">La description de la recette est requise.
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Enregistrer</button>
+</form>
